@@ -1,5 +1,5 @@
 import pandas as pd
-import numpy as np
+# import numpy as np
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog, messagebox, scrolledtext
@@ -9,7 +9,7 @@ from musicAPI import get_artist_tags
 # Function to create a DataFrame from the JSON data
 def create_dataframe(data):
     df = pd.DataFrame(data)
-    df['minutesPlayed'] = df['msPlayed'] / (1000 * 60)
+    df['minutesPlayed'] = round(df['msPlayed'] / (1000 * 60), 2)
     # df['endTime'] = pd.to_datetime(df['endTime'])
     # df['date'] = df['endTime'].dt.date
     # df['day-of-week'] = df['endTime'].dt.day_name()
@@ -99,6 +99,7 @@ def display_dataframe(df, title):
 
 # Function to create the Top Genres DataFrame
 def create_top_genres_dataframe(df):
+    # Create a summary of the top songs by artist
     song_summary = df.groupby(['artistName']).agg({'minutesPlayed': 'sum'}).sort_values('minutesPlayed', ascending=False).reset_index()
     song_summary = song_summary.head(100)
 
