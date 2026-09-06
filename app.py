@@ -10,11 +10,6 @@ from musicAPI import get_artist_tags
 def create_dataframe(data):
     df = pd.DataFrame(data)
     df['minutesPlayed'] = round(df['msPlayed'] / (1000 * 60), 2)
-    # df['endTime'] = pd.to_datetime(df['endTime'])
-    # df['date'] = df['endTime'].dt.date
-    # df['day-of-week'] = df['endTime'].dt.day_name()
-    # df['month'] = df['endTime'].dt.month
-    # df['hour'] = df['endTime'].dt.hour
     return df
 
 # Function to load the JSON file
@@ -36,8 +31,8 @@ def result_window(df, title):
     new_window = tk.Toplevel(window)
     new_window.title(title)
     
-    # Button to display the main DataFrame
-    main_button = tk.Button(new_window, text="Display Main DataFrame", command=lambda: display_dataframe(df, "Main DataFrame"))
+    # Button to display the Song Summary DataFrame
+    main_button = tk.Button(new_window, text="Display Song Summary", command=lambda: display_dataframe(df, "Song Summary"))
     main_button.pack(pady=10)
 
     # Button to display the Top Artists DataFrame
@@ -79,19 +74,6 @@ def display_dataframe(df, title):
     for row in df.itertuples(index=False):
         tree.insert("", "end", values=row)
 
-    
-
-
-
-
-    # text_area = scrolledtext.ScrolledText(display_window, wrap=tk.WORD, width=100, height=30)
-    # text_area.pack(padx=10, pady=10)
-    
-    # # Before df is converted to string, increase index by 1 to start from 1 instead of 0
-    # df.index = df.index + 1
-
-    # text_area.insert(tk.END, df.to_string())
-    # text_area.configure(state='disabled')  # Make the text area read-only
 
     # Create a button to save the DataFrame to a CSV file in the download folder
     save_button = tk.Button(display_window, text="Save to CSV", command=lambda: save_dataframe_to_csv(df, title))
