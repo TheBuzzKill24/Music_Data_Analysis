@@ -1,31 +1,32 @@
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
 ## Name
 Music Data Analysis
 
 ## Description
-This program allows you to upload a JSON file received from Spotify to construct a raw data table using Python and the MusicBrainz API to support analysis, including genre sorting, most-listened-to song identification, and top-artist ranking. You can also download an CSV file for sharing and review.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+This program allows you to upload a JSON file received from Spotify to construct a raw data table using Python and the MusicBrainz API to support analysis, including most favorite genre, most-listened-to song identification, and top-artist ranking. You can also download an CSV file for sharing and review.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+This project requires you to have Python installed on your system.
+This project also has both pandas and MusicBrainz installed.
+To install this project, run the following commands in your terminal:
+
+```bash
+git clone https://github.com](https://github.com/TheBuzzKill24/Music_Data_Analysis.git
+cd your-repo-name
+python -m venv .venv
+.venv\Scripts\activate
+pip install pandas musicbrainzngs
+```
+
 
 ## Usage
+For use, simply run app.py and after clicking the 'Load JSON File' button, upload your Spotify music data or use the example JSON provided. From there, it would show three buttons that would display different tables based on what was clicked. On each table, there is another button that will allow you to save the table as a CSV onto your system.
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+In the future, I would like to improve the performance of retrieving the genre table, as it takes a while for MusicBrainz to get all of the artist's tags. On top of that, I may add a waiting animation while it is processing. I would also like to implement numpy to show off this data on a graph for better visualization.
 
 
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Currently, I'm not focusing too much on this project due to college, but may come back to work on this project from time to time.
